@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learn C Programming for Beginners</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #2c3e50;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .topic {
+            background: #ecf0f1;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 5px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .topic:hover {
+            background: #bdc3c7;
+        }
+
+        .topic h3 {
+            margin: 0;
+            color: #2c3e50;
+        }
+
+        .topic p {
+            margin: 5px 0 0;
+            color: #7f8c8d;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Learn C Programming for Beginners</h1>
+    </header>
+
+    <div class="container">
+        <h2>C Programming Topics</h2>
+        <div id="topics-container"></div> <!-- Container for dynamic topics -->
+    </div>
+
+    <script>
+        // Array containing topics related to C Programming
+        const topics = [
+            { title: 'Introduction to C Programming', video: 'https://www.youtube.com/embed/KJgsSFOSQv0' },
+            { title: 'C Data Types and Variables', video: 'https://www.youtube.com/embed/fO4FwJOShdc' },
+            { title: 'C Input and Output (printf, scanf)', video: 'https://www.youtube.com/embed/7fAZ2Ar0Keg' },
+            { title: 'C Control Statements (if, else, switch)', video: 'https://www.youtube.com/embed/Zy5D5tShJk0' },
+            { title: 'C Loops (for, while, do-while)', video: 'https://www.youtube.com/embed/n8k7ux6K4_4' },
+            { title: 'C Arrays', video: 'https://www.youtube.com/embed/55l-aZ7_F24' },
+            { title: 'C Functions', video: 'https://www.youtube.com/embed/qF3dD7Hgg60' },
+            { title: 'C Pointers', video: 'https://www.youtube.com/embed/mw1qsMieK5c' },
+            { title: 'C Strings', video: 'https://www.youtube.com/embed/Wf2n01i5L7E' },
+            { title: 'C Structures and Unions', video: 'https://www.youtube.com/embed/3b8ARVZbS3k' },
+            { title: 'C Dynamic Memory Allocation', video: 'https://www.youtube.com/embed/xa4ugmMDhiE' },
+            { title: 'C File Handling', video: 'https://www.youtube.com/embed/UbJ2ju6hE3s' },
+            { title: 'C Preprocessor Directives', video: 'https://www.youtube.com/embed/X6HiYbY3Uak' },
+            { title: 'C Recursion', video: 'https://www.youtube.com/embed/kEP3TgJK3lE' },
+            { title: 'C Command Line Arguments', video: 'https://www.youtube.com/embed/3g9tLTwM3kM' }
+        ];
+
+        // Function to generate the HTML structure dynamically
+        function createTopics() {
+            const container = document.getElementById('topics-container');
+
+            // Iterate over the topics array and create a div for each
+            topics.forEach(topic => {
+                const topicDiv = document.createElement('div');
+                topicDiv.classList.add('topic');
+                topicDiv.innerHTML = `
+                    <h3>${topic.title}</h3>
+                    <p>Click to learn more about ${topic.title}.</p>
+                `;
+
+                // Add click event to navigate to the video page
+                topicDiv.addEventListener('click', () => {
+                    window.location.href = `c-video.html?video=${encodeURIComponent(topic.video)}&title=${encodeURIComponent(topic.title)}`;
+                });
+
+                container.appendChild(topicDiv);
+            });
+        }
+
+        // Call the function to populate topics dynamically
+        createTopics();
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learn CSS for Beginners</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #2c3e50;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .topic {
+            background: #ecf0f1;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 5px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .topic:hover {
+            background: #bdc3c7;
+        }
+
+        .topic h3 {
+            margin: 0;
+            color: #2c3e50;
+        }
+
+        .topic p {
+            margin: 5px 0 0;
+            color: #7f8c8d;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Learn CSS for Beginners</h1>
+    </header>
+
+    <div class="container">
+        <h2>CSS Topics</h2>
+        <div id="topics-container"></div> <!-- Container for dynamic topics -->
+    </div>
+
+    <script>
+        // Array containing topics related to CSS
+        const topics = [
+            { title: 'CSS Introduction', video: 'https://www.youtube.com/embed/yfoY53QXEnI' },
+            { title: 'CSS Selectors', video: 'https://www.youtube.com/embed/l1mER1bV0N0' },
+            { title: 'CSS Box Model', video: 'https://www.youtube.com/embed/rIO5326cn4w' },
+            { title: 'CSS Flexbox', video: 'https://www.youtube.com/embed/JJSoEo8JSnc' },
+            { title: 'CSS Grid', video: 'https://www.youtube.com/embed/EFafSYg-PkI' },
+            { title: 'CSS Transitions', video: 'https://www.youtube.com/embed/zHUpx90NerM' },
+            { title: 'CSS Animations', video: 'https://www.youtube.com/embed/YszONjKpgg4' },
+            { title: 'Responsive Design', video: 'https://www.youtube.com/embed/srvUrASNj0s' }
+        ];
+
+        // Function to generate the HTML structure dynamically
+        function createTopics() {
+            const container = document.getElementById('topics-container');
+
+            // Iterate over the topics array and create a div for each
+            topics.forEach(topic => {
+                const topicDiv = document.createElement('div');
+                topicDiv.classList.add('topic');
+                topicDiv.innerHTML = `
+                    <h3>${topic.title}</h3>
+                    <p>Click to learn more about ${topic.title}.</p>
+                `;
+
+                // Add click event to navigate to the video page
+                topicDiv.addEventListener('click', () => {
+                    window.location.href = `css-video.html?video=${encodeURIComponent(topic.video)}&title=${encodeURIComponent(topic.title)}`;
+                });
+
+                container.appendChild(topicDiv);
+            });
+        }
+
+        // Call the function to populate topics dynamically
+        createTopics();
+    </script>
+</body>
+
+</html>

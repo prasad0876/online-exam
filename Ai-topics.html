@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learn Artificial Intelligence for Beginners</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #2c3e50;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .topic {
+            background: #ecf0f1;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 5px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .topic:hover {
+            background: #bdc3c7;
+        }
+
+        .topic h3 {
+            margin: 0;
+            color: #2c3e50;
+        }
+
+        .topic p {
+            margin: 5px 0 0;
+            color: #7f8c8d;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Learn Artificial Intelligence for Beginners</h1>
+    </header>
+
+    <div class="container">
+        <h2>Artificial Intelligence Topics</h2>
+        <div id="topics-container"></div> <!-- Container for dynamic topics -->
+    </div>
+
+    <script>
+        // Array containing topics related to Artificial Intelligence
+        const topics = [
+            { title: 'Introduction to Artificial Intelligence', video: 'https://www.youtube.com/embed/ad79nYk2keg' },
+            { title: 'History of Artificial Intelligence', video: 'https://www.youtube.com/embed/8eR5dTiPhM8' },
+            { title: 'Types of AI (Narrow AI, General AI, Super AI)', video: 'https://www.youtube.com/embed/lrv8ga02VNg' },
+            { title: 'Machine Learning vs Artificial Intelligence', video: 'https://www.youtube.com/embed/4RixMPF4xis' },
+            { title: 'Neural Networks and Deep Learning', video: 'https://www.youtube.com/embed/aircAruvnKk' },
+            { title: 'Natural Language Processing (NLP)', video: 'https://www.youtube.com/embed/oi0JXuL19TA' },
+            { title: 'Computer Vision', video: 'https://www.youtube.com/embed/OcycT1Jwsns' },
+            { title: 'Reinforcement Learning', video: 'https://www.youtube.com/embed/lDq_en8RNOo' },
+            { title: 'AI in Robotics', video: 'https://www.youtube.com/embed/uhNDlNeDvO4' },
+            { title: 'AI Ethics and Bias', video: 'https://www.youtube.com/embed/7gYisK2A5AE' },
+            { title: 'AI in Healthcare', video: 'https://www.youtube.com/embed/XA5yVK8kSwE' },
+            { title: 'AI in Finance', video: 'https://www.youtube.com/embed/EJzKlKvYwwA' },
+            { title: 'AI in Gaming', video: 'https://www.youtube.com/embed/xBEK8vBYtBI' },
+            { title: 'AI in Autonomous Vehicles', video: 'https://www.youtube.com/embed/1SyB4Hf8l5s' },
+            { title: 'AI in Chatbots and Virtual Assistants', video: 'https://www.youtube.com/embed/1LqgW6_8u5A' },
+            { title: 'AI in Cybersecurity', video: 'https://www.youtube.com/embed/6qo3lyJdXz4' },
+            { title: 'AI in Agriculture', video: 'https://www.youtube.com/embed/0g4v0xYhypA' },
+            { title: 'AI in Education', video: 'https://www.youtube.com/embed/7R52wiUgxZI' },
+            { title: 'AI in Smart Homes', video: 'https://www.youtube.com/embed/5yBSJ6y7N9Q' },
+            { title: 'Future of Artificial Intelligence', video: 'https://www.youtube.com/embed/8nt3edWLgIg' }
+        ];
+
+        // Function to generate the HTML structure dynamically
+        function createTopics() {
+            const container = document.getElementById('topics-container');
+
+            // Iterate over the topics array and create a div for each
+            topics.forEach(topic => {
+                const topicDiv = document.createElement('div');
+                topicDiv.classList.add('topic');
+                topicDiv.innerHTML = `
+                    <h3>${topic.title}</h3>
+                    <p>Click to learn more about ${topic.title}.</p>
+                `;
+
+                // Add click event to navigate to the video page
+                topicDiv.addEventListener('click', () => {
+                    window.location.href = `Ai-video.html?video=${encodeURIComponent(topic.video)}&title=${encodeURIComponent(topic.title)}`;
+                });
+
+                container.appendChild(topicDiv);
+            });
+        }
+
+        // Call the function to populate topics dynamically
+        createTopics();
+    </script>
+</body>
+
+</html>

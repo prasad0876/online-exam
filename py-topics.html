@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learn Python for Beginners</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #2c3e50;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .topic {
+            background: #ecf0f1;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 5px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .topic:hover {
+            background: #bdc3c7;
+        }
+
+        .topic h3 {
+            margin: 0;
+            color: #2c3e50;
+        }
+
+        .topic p {
+            margin: 5px 0 0;
+            color: #7f8c8d;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Learn Python for Beginners</h1>
+    </header>
+
+    <div class="container">
+        <h2>Python Topics</h2>
+        <div id="topics-container"></div> <!-- Container for dynamic topics -->
+    </div>
+
+    <script>
+        // Array containing topics related to Python
+        const topics = [
+            { title: 'Introduction to Python', video: 'https://www.youtube.com/embed/_uQrJ0TkZlc' },
+            { title: 'Python Variables and Data Types', video: 'https://www.youtube.com/embed/khKv-8q7YmY' },
+            { title: 'Python Input and Output', video: 'https://www.youtube.com/embed/0K_eZGS5NsU' },
+            { title: 'Python Control Flow (if, else, loops)', video: 'https://www.youtube.com/embed/HZARImHd-oo' },
+            { title: 'Python Functions', video: 'https://www.youtube.com/embed/9Os0o3wzS_I' },
+            { title: 'Python Lists and Tuples', video: 'https://www.youtube.com/embed/Eaz5e6M8tL4' },
+            { title: 'Python Dictionaries and Sets', video: 'https://www.youtube.com/embed/daefaLgNkw0' },
+            { title: 'Python File Handling', video: 'https://www.youtube.com/embed/Uh2ebFW8OYM' },
+            { title: 'Python Exception Handling', video: 'https://www.youtube.com/embed/NW6e7W6Qiyc' },
+            { title: 'Python Modules and Packages', video: 'https://www.youtube.com/embed/1RuMJ53CKds' },
+            { title: 'Python Object-Oriented Programming (OOP)', video: 'https://www.youtube.com/embed/JeznW_7DlB0' },
+            { title: 'Python Decorators', video: 'https://www.youtube.com/embed/FsAPt_9Bf3U' },
+            { title: 'Python Generators', video: 'https://www.youtube.com/embed/bD05uGo_sVI' },
+            { title: 'Python Regular Expressions', video: 'https://www.youtube.com/embed/K8L6KVGG-7o' },
+            { title: 'Python Working with APIs', video: 'https://www.youtube.com/embed/pxofwuWTs7c' },
+            { title: 'Python Data Analysis with Pandas', video: 'https://www.youtube.com/embed/vmEHCJofslg' },
+            { title: 'Python Data Visualization with Matplotlib', video: 'https://www.youtube.com/embed/UO98lJQ3QGI' },
+            { title: 'Python Web Scraping with BeautifulSoup', video: 'https://www.youtube.com/embed/XQgXKtPSzUI' },
+            { title: 'Python Flask Framework', video: 'https://www.youtube.com/embed/Z1RJmh_OqeA' },
+            { title: 'Python Django Framework', video: 'https://www.youtube.com/embed/rHux0gMZ3Eg' }
+        ];
+
+        // Function to generate the HTML structure dynamically
+        function createTopics() {
+            const container = document.getElementById('topics-container');
+
+            // Iterate over the topics array and create a div for each
+            topics.forEach(topic => {
+                const topicDiv = document.createElement('div');
+                topicDiv.classList.add('topic');
+                topicDiv.innerHTML = `
+                    <h3>${topic.title}</h3>
+                    <p>Click to learn more about ${topic.title}.</p>
+                `;
+
+                // Add click event to navigate to the video page
+                topicDiv.addEventListener('click', () => {
+                    window.location.href = `py-video.html?video=${encodeURIComponent(topic.video)}&title=${encodeURIComponent(topic.title)}`;
+                });
+
+                container.appendChild(topicDiv);
+            });
+        }
+
+        // Call the function to populate topics dynamically
+        createTopics();
+    </script>
+</body>
+
+</html>

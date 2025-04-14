@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact | LearnOnline</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+    <style>/* Global Styles */
+       /* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif; /* Using Poppins font for modern feel */
+    background-color: #f9f9f9;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Header & Navigation */
+/* Header Styles */
+header {
+    background-color: #2c3e50;
+    color: white;
+    padding: 20px 30px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.logo a {
+    font-size: 2rem;
+    font-weight: bold;
+    color: white;
+    text-decoration: none;
+    letter-spacing: 1px;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links .nav-link {
+    color: white;
+    text-decoration: none;
+    font-size: 1.1rem;
+    transition: background 0.3s ease;
+    padding: 10px 15px;
+}
+
+.nav-links .nav-link:hover,
+.nav-links .nav-link.active {
+    background-color: #3498db;
+    border-radius: 5px;
+}
+
+.btn-login {
+    background-color: #3498db;
+    padding: 8px 15px;
+    border-radius: 5px;
+    transition: background 0.3s ease;
+}
+
+.btn-login:hover {
+    background-color: #2980b9;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        background-color: #333;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        width: 100%;
+        text-align: center;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .menu-toggle {
+        display: flex;
+    }
+}
+
+
+/* Main Contact Form Section */
+main {
+    background-color: #fff;
+    padding: 50px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contact-form-container {
+    width: 100%;
+    max-width: 700px;
+    background-color: #ffffff;
+    padding: 40px;
+    border-radius: 15px; /* Rounded corners for the form */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    animation: fadeIn 1s ease-in-out;
+    border: 1px solid #ddd; /* Subtle border around the form */
+}
+
+.contact-form-container h1 {
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 20px;
+    font-weight: 600; /* Slightly bolder font for title */
+}
+
+.contact-form-container p {
+    font-size: 1.2rem;
+    color: #666;
+    margin-bottom: 30px;
+    font-weight: 400;
+}
+
+.contact-form-container label {
+    font-size: 1.1rem;
+    color: #555;
+    margin-bottom: 5px;
+    text-align: left;
+    width: 100%;
+    display: block;
+    font-weight: 500;
+}
+
+/* Input and Textarea Styling */
+.contact-form-container input,
+.contact-form-container textarea {
+    width: 100%;
+    padding: 14px;
+    margin: 10px 0;
+    font-size: 1rem;
+    border-radius: 8px; /* Rounded corners for inputs */
+    border: 1px solid #ccc;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+}
+
+/* Focus and Hover Effects */
+.contact-form-container input:hover,
+.contact-form-container textarea:hover {
+    border-color: #3498db;
+}
+
+.contact-form-container input:focus,
+.contact-form-container textarea:focus {
+    border-color: #3498db;
+    outline: none;
+    box-shadow: 0 0 10px rgba(52, 152, 219, 0.5); /* Focus effect */
+}
+
+/* Button Styling */
+.contact-form-container .btn-submit {
+    background-color: #3498db;
+    color: white;
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 20px;
+    border: 1px solid #3498db; /* Button border */
+    font-weight: 600; /* Slightly bolder font for the button */
+}
+
+.contact-form-container .btn-submit:hover {
+    background-color: #2980b9;
+    transform: scale(1.05); /* Button hover effect */
+}
+
+/* Success Message Animation */
+.success-message {
+    display: none;
+    font-size: 1.2rem;
+    color: green;
+    margin-top: 20px;
+    opacity: 0;
+    animation: fadeIn 2s forwards;
+}
+
+.error-message {
+    display: none;
+    font-size: 1.2rem;
+    color: red;
+    margin-top: 20px;
+}
+
+/* Footer Styles */
+footer {
+    background-color: #333;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    margin-top: 50px;
+}
+
+footer p {
+    font-size: 1rem;
+}
+
+footer a {
+    color: #3498db;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+footer a:hover {
+    color: #2980b9;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .nav-links {
+        flex-direction: column;
+        gap: 15px;
+        align-items: center;
+    }
+
+    .contact-form-container {
+        width: 90%;
+        padding: 30px;
+    }
+
+    .contact-form-container h1 {
+        font-size: 2rem;
+    }
+
+    .contact-form-container input,
+    .contact-form-container textarea {
+        font-size: 1rem;
+    }
+
+    .contact-form-container .btn-submit {
+        font-size: 1.1rem;
+    }
+}
+
+/* Keyframe Animation for Fade In */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+        </style>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <a href="index.html">LearnOnline</a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="courses.html" class="nav-link">Courses</a></li>
+                <li><a href="about.html" class="nav-link">About Us</a></li>
+                <li><a href="contact.html" class="nav-link active">Contact</a></li>
+                <li><a href="login.html" class="btn-login nav-link">Login</a></li>
+            </ul>
+            <div class="menu-toggle" id="mobile-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="contact-form-container">
+            <h1>Contact Us</h1>
+            <p>Feel free to reach out to us. We're here to assist you.</p>
+
+            <form id="contactForm">
+                <label for="name">Full Name:</label>
+                <input type="text" id="name" name="name" placeholder="Enter your full name" required><br><br>
+
+                <label for="email">Email Address:</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email" required><br><br>
+
+                <label for="message">Message:</label><br>
+                <textarea id="message" name="message" placeholder="Your message here..." required></textarea><br><br>
+
+                <button type="submit" class="btn-submit">Send Message</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Online Learning Platform. All Rights Reserved.</p>
+    </footer>
+</body>
+
+</html>

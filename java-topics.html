@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learn Java for Beginners</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #2c3e50;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .topic {
+            background: #ecf0f1;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 5px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .topic:hover {
+            background: #bdc3c7;
+        }
+
+        .topic h3 {
+            margin: 0;
+            color: #2c3e50;
+        }
+
+        .topic p {
+            margin: 5px 0 0;
+            color: #7f8c8d;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Learn Java for Beginners</h1>
+    </header>
+
+    <div class="container">
+        <h2>Java Topics</h2>
+        <div id="topics-container"></div> <!-- Container for dynamic topics -->
+    </div>
+
+    <script>
+        // Array containing topics related to Java
+        const topics = [
+            { title: 'Introduction to Java', video: 'https://www.youtube.com/embed/WPvGqX-TXP0' },
+            { title: 'Java Data Types and Variables', video: 'https://www.youtube.com/embed/BI3JzvNyF6o' },
+            { title: 'Java Control Statements (if, else, switch)', video: 'https://www.youtube.com/embed/1XAA0gd5yLk' },
+            { title: 'Java Loops (for, while, do-while)', video: 'https://www.youtube.com/embed/6djggrlkHY8' },
+            { title: 'Java Arrays', video: 'https://www.youtube.com/embed/o2ARur9hs9M' },
+            { title: 'Java Methods', video: 'https://www.youtube.com/embed/2W4uvaa2b8A' },
+            { title: 'Object-Oriented Programming (OOP) in Java', video: 'https://www.youtube.com/embed/8cm1x4bC610' },
+            { title: 'Inheritance in Java', video: 'https://www.youtube.com/embed/8JgH2FD0zRk' },
+            { title: 'Polymorphism in Java', video: 'https://www.youtube.com/embed/8kCp3qX2e7E' },
+            { title: 'Exception Handling in Java', video: 'https://www.youtube.com/embed/2nQI7I6ib-c' },
+            { title: 'Java Collections Framework', video: 'https://www.youtube.com/embed/Z9RP7FOSHsE' },
+            { title: 'Java Multithreading', video: 'https://www.youtube.com/embed/r_MbozD32eo' },
+            { title: 'Java File Handling', video: 'https://www.youtube.com/embed/1H-Vjp5zU1k' },
+            { title: 'Java Lambda Expressions', video: 'https://www.youtube.com/embed/tj5sLSFjVj4' },
+            { title: 'Java Stream API', video: 'https://www.youtube.com/embed/t1-YZ6bF-g0' }
+        ];
+
+        // Function to generate the HTML structure dynamically
+        function createTopics() {
+            const container = document.getElementById('topics-container');
+
+            // Iterate over the topics array and create a div for each
+            topics.forEach(topic => {
+                const topicDiv = document.createElement('div');
+                topicDiv.classList.add('topic');
+                topicDiv.innerHTML = `
+                    <h3>${topic.title}</h3>
+                    <p>Click to learn more about ${topic.title}.</p>
+                `;
+
+                // Add click event to navigate to the video page
+                topicDiv.addEventListener('click', () => {
+                    window.location.href = `java-video.html?video=${encodeURIComponent(topic.video)}&title=${encodeURIComponent(topic.title)}`;
+                });
+
+                container.appendChild(topicDiv);
+            });
+        }
+
+        // Call the function to populate topics dynamically
+        createTopics();
+    </script>
+</body>
+
+</html>

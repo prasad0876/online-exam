@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learn DBMS for Beginners</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #2c3e50;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .topic {
+            background: #ecf0f1;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 5px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .topic:hover {
+            background: #bdc3c7;
+        }
+
+        .topic h3 {
+            margin: 0;
+            color: #2c3e50;
+        }
+
+        .topic p {
+            margin: 5px 0 0;
+            color: #7f8c8d;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Learn DBMS for Beginners</h1>
+    </header>
+
+    <div class="container">
+        <h2>DBMS Topics</h2>
+        <div id="topics-container"></div> <!-- Container for dynamic topics -->
+    </div>
+
+    <script>
+        // Array containing topics related to DBMS
+        const topics = [
+            { title: 'Introduction to DBMS', video: 'https://www.youtube.com/embed/FR4QIeZaPeM' },
+            { title: 'Relational Model in DBMS', video: 'https://www.youtube.com/embed/NvrpuBAMddw' },
+            { title: 'SQL Basics', video: 'https://www.youtube.com/embed/7S_tz1z_5bA' },
+            { title: 'Normalization in DBMS', video: 'https://www.youtube.com/embed/xoTyrdT9SZI' },
+            { title: 'ER Diagrams in DBMS', video: 'https://www.youtube.com/embed/QpdhBUYk7Kk' },
+            { title: 'Transactions and ACID Properties', video: 'https://www.youtube.com/embed/mpc0v6wE9_c' },
+            { title: 'Indexing in DBMS', video: 'https://www.youtube.com/embed/A-q1D4t4KFk' },
+            { title: 'Concurrency Control in DBMS', video: 'https://www.youtube.com/embed/7KbVrm6x5IM' },
+            { title: 'Database Security', video: 'https://www.youtube.com/embed/8VZuwr7k2Zk' },
+            { title: 'NoSQL Databases', video: 'https://www.youtube.com/embed/0buKQHokLK8' }
+        ];
+
+        // Function to generate the HTML structure dynamically
+        function createTopics() {
+            const container = document.getElementById('topics-container');
+
+            // Iterate over the topics array and create a div for each
+            topics.forEach(topic => {
+                const topicDiv = document.createElement('div');
+                topicDiv.classList.add('topic');
+                topicDiv.innerHTML = `
+                    <h3>${topic.title}</h3>
+                    <p>Click to learn more about ${topic.title}.</p>
+                `;
+
+                // Add click event to navigate to the video page
+                topicDiv.addEventListener('click', () => {
+                    window.location.href = `dbms-video.html?video=${encodeURIComponent(topic.video)}&title=${encodeURIComponent(topic.title)}`;
+                });
+
+                container.appendChild(topicDiv);
+            });
+        }
+
+        // Call the function to populate topics dynamically
+        createTopics();
+    </script>
+</body>
+
+</html>

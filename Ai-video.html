@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artificial Intelligence Video - LearnOnline</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #2c3e50;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        iframe {
+            width: 100%;
+            height: 400px;
+            border: none;
+            border-radius: 8px;
+        }
+
+        .back-button {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #2c3e50;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background 0.3s ease;
+        }
+
+        .back-button:hover {
+            background-color: #34495e;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1 id="video-title">Artificial Intelligence Video</h1>
+    </header>
+
+    <div class="container">
+        <iframe id="video-frame" src="" title="Artificial Intelligence Video" allowfullscreen></iframe>
+        <a href="index.html" class="back-button">Back to Topics</a>
+    </div>
+
+    <script>
+        // Extract video URL and title from query parameters
+        const urlParams = new URLSearchParams(window.location.search);
+        const videoUrl = urlParams.get('video');
+        const videoTitle = urlParams.get('title');
+
+        // Set the video title and embed the video
+        document.getElementById('video-title').textContent = videoTitle;
+        document.getElementById('video-frame').src = videoUrl;
+    </script>
+</body>
+
+</html>
